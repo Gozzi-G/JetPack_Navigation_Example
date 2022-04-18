@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.prud.jetpack_navigation_example.screens.main.tabs.profile.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/screen_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

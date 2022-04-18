@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.prud.jetpack_navigation_example.screens.main.auth.sign_in.SignInFragment"
-        android:label="fragment_sign_in"
+        android:label="@string/screen_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.prud.jetpack_navigation_example.screens.main.tabs.profile.EditProfileFragment"
-        android:label="fragment_edit_profile"
+        android:label="@string/screen_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
         android:id="@+id/tabsFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.prud.jetpack_navigation_example.screens.main.auth.sign_up.SignUpFragment"
-        android:label="fragment_sign_up"
+        android:label="@string/screen_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <argument
             android:name="email"
