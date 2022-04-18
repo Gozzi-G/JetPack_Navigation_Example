@@ -1,0 +1,18 @@
+package com.prud.jetpack_navigation_example.screens.main.tabs
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.prud.jetpack_navigation_example.R
+import com.prud.jetpack_navigation_example.databinding.FragmentTabsBinding
+
+class TabsFragment : Fragment(R.layout.fragment_tabs) {
+
+    private lateinit var binding: FragmentTabsBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentTabsBinding.bind(view)
+    }
+
+}
