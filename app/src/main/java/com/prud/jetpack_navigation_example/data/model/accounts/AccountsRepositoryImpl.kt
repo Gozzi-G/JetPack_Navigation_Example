@@ -71,7 +71,7 @@ class AccountsRepositoryImpl : AccountsRepository {
     }
 
     override fun logout() {
-
+        currentAccountFlow.value = null
     }
 
     override fun getAccount(): Flow<Account?> {
@@ -79,7 +79,15 @@ class AccountsRepositoryImpl : AccountsRepository {
     }
 
     override suspend fun updateAccountUsername(newUsername: String) {
+        if (newUsername.isBlank()) throw EmptyFieldException(Field.Username)
 
+        delay(1000)
+        val currentAccount = currentAccountFlow.value ?: throw AuthException()
+
+        val updateAccount = currentAccount.copy(userName = newUsername)
+        currentAccountFlow.value = updateAccount
+        val currentRecord = getRecordByEmail(currentAccount.email) ?: throw AuthException()
+        currentRecord.account = updateAccount
     }
 
     private fun getRecordByEmail(email: String) = accounts.firstOrNull {
