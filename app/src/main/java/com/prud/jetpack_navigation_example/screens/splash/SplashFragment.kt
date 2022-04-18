@@ -1,11 +1,14 @@
 package com.prud.jetpack_navigation_example.screens.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.prud.jetpack_navigation_example.R
 import com.prud.jetpack_navigation_example.Repositories
 import com.prud.jetpack_navigation_example.databinding.FragmentSplashBinding
+import com.prud.jetpack_navigation_example.screens.MainActivity
+import com.prud.jetpack_navigation_example.screens.MainActivityArgs
 import com.prud.jetpack_navigation_example.utils.observeEvent
 import com.prud.jetpack_navigation_example.utils.viewModelCreator
 
@@ -27,7 +30,11 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun launchMainScreen(isSignedIn: Boolean) {
-        TODO("Launch MainActivity here and send isSignedIn flag to it")
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        val args = MainActivityArgs(isSignedIn)
+        intent.putExtras(args.toBundle())
+        startActivity(intent)
     }
 
     private fun renderAnimations() {
