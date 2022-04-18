@@ -26,7 +26,7 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSignUpBinding.bind(view)
-        binding.createAccountButton.setOnClickListener {  }
+        binding.createAccountButton.setOnClickListener { onCreateAccountButtonPressed() }
 
         if (savedInstanceState == null && getEmailArgument() != null) {
             binding.emailEditText.setText(getEmailArgument())

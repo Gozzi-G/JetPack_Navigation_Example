@@ -39,10 +39,16 @@ class BoxesRepositoryImpl(
     }
 
     override suspend fun activateBox(box: Box) {
-        TODO("Not yet implemented")
+        val account = accountsRepository.getAccount().firstOrNull() ?: return
+        val activeBoxes = allActiveBoxes[account.email] ?: return
+        activeBoxes.add(box.id)
+        reconstructFlow.tryEmit(Unit)
     }
 
     override suspend fun deactivateBox(box: Box) {
-        TODO("Not yet implemented")
+        val account = accountsRepository.getAccount().firstOrNull() ?: return
+        val activeBoxes = allActiveBoxes[account.email] ?: return
+        activeBoxes.remove(box.id)
+        reconstructFlow.tryEmit(Unit)
     }
 }
